@@ -1,0 +1,39 @@
+services:
+  app:
+    build: ./app
+    depends_on:
+      - api
+
+  api:
+    build: ./api
+    depends_on:
+      - db
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint:
+      [
+        "/bin/sh",
+        "-c",
+        "while :; do certbot renew; sleep 12h; done"
+      ]
+
+  db:
+    image: mongo
+    volumes:
+      - ./db:/data/db
+
+  server:
+    build: ./server
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+      - api

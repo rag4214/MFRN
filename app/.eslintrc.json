@@ -1,0 +1,23 @@
+{
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "next/core-web-vitals"
+  ],
+  "rules": {
+    "max-len": "off",
+    "no-restricted-exports": "off",
+    "react/display-name": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-props-no-spreading": "off"
+  }
+}

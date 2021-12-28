@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+
+html,
+body,
+#__next {
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

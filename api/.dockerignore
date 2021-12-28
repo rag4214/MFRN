@@ -1,0 +1,12 @@
+# Docker
+Dockerfile
+.dockerignore
+
+# Dependency directories
+node_modules
+
+# Logs
+npm-debug.log*
+
+# Build Output
+dist
